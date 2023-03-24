@@ -2,18 +2,53 @@
     margin: 0;
     padding: 0;
 }
+
 #ticket {
     overflow: hidden;
     position: relative;
     /*background-color: rgb(131, 110, 89);*/
 }
 
-.banner{
+.banner {
     width: 100%;
     object-fit: cover;
 }
 
-.from-item{
+.from-item {
     /*float: left;*/
     /*margin:0 auto;*/
+}
+
+.avatar-uploader-icon {
+    font-size: 0.75rem;
+    color: #8c939d;
+    width: 4rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+}
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar {
+    object-fit: cover;
+    width: 4rem;
+    height: 6rem;
+    display: block;
+}
+
+.is-plain {
+    width: 10rem;
+    background-color: rgb(206, 171, 103);
+    color: white;
+}
+.el-button.is-plain:hover{
+    background-color: rgb(206, 171, 103);
+    color: white;
 }

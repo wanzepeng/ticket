@@ -6,7 +6,14 @@ var vm = new Vue({
             showToast: false,
             avatar: 'assets/test.jpg',
             avatarDown: 'assets/piaogen.png',
-            qrcode: 'assets/qrcode.png'
+            qrcode: 'assets/qrcode.png',
+            info:  {
+                storeName: '',
+                time: '',
+                playerName: '',
+                buddyName: '',
+                imageUrl: '',
+            },
         };
     },
     mounted: function () {
@@ -21,11 +28,30 @@ var vm = new Vue({
                         //     _this.avatar = res;
                         // });*/
         });
+        const url = window.location.search;
+        this.getParams(url)
         // this.createImage()
     },
     updated: function () {
     },
     methods: {
+        getParams: function(searchUrl) {
+            var index = searchUrl.indexOf('?');
+            if(index == -1){
+                return;
+            }
+            searchUrl = searchUrl.substr(index + 1);
+            var obj = new Object();
+            var params = searchUrl.split('&');
+            for(var i = 0; i < params.length; i++){
+                var item = params[i].split('=');
+                obj[item[0]] = decodeURI(item[1]);
+            }
+            console.log(obj)
+            this.info = obj
+            console.log(this.info)
+            return obj;
+        },
         // 判断图片是否加载完成
         isOnloadAll: function () {
             /*console.log("imgLoaasdd");

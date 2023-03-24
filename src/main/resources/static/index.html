@@ -16,19 +16,12 @@
                 <img class="banner" :src="banner">
             </el-col>
             <el-col style="margin-top: 1rem">
-                <el-form label-position="left" ref="form" :model="form" label-width="5rem">
-                    <!-- <el-row >
-                         <el-col :span="6">
-                             <p>店铺</p>
-                         </el-col>
-                         <el-col :span="15">
-                             <el-input placeholder="请输入内容"></el-input>
-                         </el-col>
-                     </el-row>-->
+                <el-form :rules="rules" label-position="left" ref="form" :model="form" label-width="5rem">
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
                             <el-form-item label="照片上传" class="from-item">
                                 <el-upload
+                                        accept="image/*"
                                         class="avatar-uploader"
                                         :action="action"
                                         :show-file-list="false"
@@ -39,37 +32,47 @@
                                 >
                                     <img v-if="imageUrl" :src="imageUrl" class="avatar"/>
                                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                                    <div slot="tip" class="el-upload__tip">建议尺寸：200*100px</div>
                                 </el-upload>
                             </el-form-item>
                         </el-col>
                     </el-row>
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item label="活动区域" class="from-item">
-                                <el-input placeholder="请输入内容"></el-input>
+                            <el-form-item label="店铺" class="from-item" prop="storeName">
+                                <el-input v-model="form.storeName" :disabled="true" placeholder="请输入内容"></el-input>
                             </el-form-item>
                         </el-col>
                     </el-row>
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item label="时间" class="from-item">
-                                <el-input placeholder="请选择时间"></el-input>
+                            <el-form-item label="时间" class="from-item" prop="time">
+                                <el-date-picker
+                                        value-format="yyyy-MM-dd hh:mm"
+                                        v-model="form.time"
+                                        type="datetime"
+                                        placeholder="选择日期时间">
+                                </el-date-picker>
                             </el-form-item>
                         </el-col>
                     </el-row>
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item label="玩家" class="from-item">
-                                <el-input placeholder="请输入玩家昵称"></el-input>
+                            <el-form-item label="玩家" class="from-item" prop="playerName">
+                                <el-input v-model="form.playerName" placeholder="请输入玩家昵称"></el-input>
                             </el-form-item>
                         </el-col>
                     </el-row>
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item label="同伴" class="from-item">
-                                <el-input placeholder="请输入同伴昵称"></el-input>
-
+                            <el-form-item label="同伴" class="from-item" prop="buddyName">
+                                <el-input v-model="form.buddyName" placeholder="请输入同伴昵称"></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row type="flex" justify="center">
+                        <el-col :span="20">
+                            <el-form-item>
+                                <el-button plain @click="onSubmit('form')">立即创建</el-button>
                             </el-form-item>
                         </el-col>
                     </el-row>
