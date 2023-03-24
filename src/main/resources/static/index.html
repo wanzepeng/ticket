@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no,width=device-width, minimal-ui">
+    <title>水之梦</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./style/element-ui.css">
+    <link rel="stylesheet" href="./style/index.css?v=20101212">
+</head>
+<body>
+<div id="app" ref="app">
+    <div>
+        <el-row>
+            <el-col>
+                <img class="banner" :src="banner">
+            </el-col>
+            <el-col style="margin-top: 1rem">
+                <el-form label-position="left" ref="form" :model="form" label-width="5rem">
+                    <!-- <el-row >
+                         <el-col :span="6">
+                             <p>店铺</p>
+                         </el-col>
+                         <el-col :span="15">
+                             <el-input placeholder="请输入内容"></el-input>
+                         </el-col>
+                     </el-row>-->
+                    <el-row type="flex" justify="center">
+                        <el-col :span="20">
+                            <el-form-item label="照片上传" class="from-item">
+                                <el-upload
+                                        class="avatar-uploader"
+                                        :action="action"
+                                        :show-file-list="false"
+                                        :data="fileData"
+                                        :headers="headers"
+                                        :on-success="handleAvatarSuccess"
+                                        :before-upload="beforeAvatarUpload"
+                                >
+                                    <img v-if="imageUrl" :src="imageUrl" class="avatar"/>
+                                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                    <div slot="tip" class="el-upload__tip">建议尺寸：200*100px</div>
+                                </el-upload>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row type="flex" justify="center">
+                        <el-col :span="20">
+                            <el-form-item label="活动区域" class="from-item">
+                                <el-input placeholder="请输入内容"></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row type="flex" justify="center">
+                        <el-col :span="20">
+                            <el-form-item label="时间" class="from-item">
+                                <el-input placeholder="请选择时间"></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row type="flex" justify="center">
+                        <el-col :span="20">
+                            <el-form-item label="玩家" class="from-item">
+                                <el-input placeholder="请输入玩家昵称"></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row type="flex" justify="center">
+                        <el-col :span="20">
+                            <el-form-item label="同伴" class="from-item">
+                                <el-input placeholder="请输入同伴昵称"></el-input>
+
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                </el-form>
+            </el-col>
+        </el-row>
+    </div>
+</div>
+</body>
+<script src="js/vue-2.4.2.min.js?v=20101212"></script>
+<!--<script src="js/vue.js?v=20101212"></script>-->
+<!-- 引入组件库 -->
+<script src="js/element-ui.js"></script>
+<script src="js/index.js?v=20101212"></script>
+
+</html>

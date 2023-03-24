@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#ticket {
+    overflow: hidden;
+    position: relative;
+    /*background-color: rgb(131, 110, 89);*/
+    background-color: #8cc5ff;
+}
+
+.container {
+    /*width: 9.333333rem;*/
+    /*margin: 0.4rem auto 0 auto;*/
+    margin: 0.15rem;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*.title{
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 1rem 0;
+}*/
+.bannerCon {
+    width: 95%;
+    margin-top: 1rem;
+    border-radius: 0.4rem;
+    background-color: #eaeaea;
+}
+
+.banner {
+    width: 100%;
+    margin: 0 auto;
+    /*margin-top: -1rem;*/
+    border-radius: 0.4rem;
+    /*padding: 0.1rem 0.1rem;*/
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    /*margin: 0.1rem;*/
+    width: 100%;
+    /*height: 60%;*/
+    /*border-radius: 5%;*/
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.avatarDown {
+    position: relative;
+    /*margin: 0.1rem;*/
+    /*margin-top: 0.1rem;*/
+    width: 100%;
+    /*height: 8rem;*/
+    border-radius: 5%;
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.topImg {
+    width: 100%;
+}
+
+.downImg {
+    width: 100%;
+    object-fit: cover;
+}
+
+.storeName {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.5rem;
+    font-weight: bolder;
+}
+
+.time {
+    position: absolute;
+    top: 1.2rem;
+    left: 0.5rem;
+    font-size: 0.5rem;
+    font-weight: lighter;
+}
+
+.playerNameTitle {
+    position: absolute;
+    top: 4rem;
+    left: 0.5rem;
+    font-size: 0.5rem;
+    /*font-weight: lighter;*/
+    color: #636363;
+}
+
+.playerName {
+    position: absolute;
+    top: 4rem;
+    left: 2.5rem;
+    font-size: 0.5rem;
+    /*font-weight: bold;*/
+}
+.buddyNameTitle {
+    position: absolute;
+    top: 4.75rem;
+    left: 0.5rem;
+    font-size: 0.5rem;
+    /*font-weight: lighter;*/
+    color: #636363;
+}
+
+.buddyName {
+    position: absolute;
+    top: 4.75rem;
+    left: 2.5rem;
+    font-size: 0.5rem;
+    /*font-weight: bold;*/
+}
+
+.advertiseTitle {
+    position: absolute;
+    bottom : 1rem;
+    left: 0.5rem;
+    font-size: 0.3rem;
+    font-weight: normal;
+    color: #636363;
+}
+
+.advertise {
+    position: absolute;
+    bottom : 0.5rem;
+    left: 0.5rem;
+    font-size: 0.3rem;
+    font-weight: normal;
+    color: #636363;
+}
+
+.qrcode{
+    width: 1.5rem;
+    position: absolute;
+    bottom : 0.5rem;
+    right: 0.5rem;
+    object-fit: cover;
+}
+
+.ranking {
+    margin: 0.1rem;
+    text-align: center;
+}
+
+.ranking p {
+    font-size: 20px;
+    color: #636363;
+    line-height: 1rem;
+    margin-bottom: 0.222rem;
+}
+
+.qrcodeBox {
+    width: 3rem;
+    height: 3rem;
+}
+
+.qrcodeBox img {
+    width: 100%;
+}
+
+.clearFix::after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: '.';
+    visibility: hidden;
+}
+
+.btnCon {
+    margin: 1.2rem auto;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.btnItem {
+    margin: 0 0.3rem;
+    text-align: center;
+    width: 1.7rem;
+    line-height: 0.8rem;
+    height: 0.8rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+}
+
+.save {
+    /*margin-right: 1rem;*/
+}
+
+.longPress {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.shareImg {
+    z-index: 6;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.shareImg img {
+    width: 100%;
+    /*pointer-events: none;*/
+}

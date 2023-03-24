@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no,width=device-width, minimal-ui">
+    <title>水之梦</title>
+    <link rel="stylesheet" href="style/ticket.css?v=20101212">
+</head>
+
+<body>
+<div id="ticket" ref="ticket">
+    <div class="container">
+        <!--        <h3 class="title">拉新活动</h3>-->
+        <div class="bannerCon1">
+            <div class="banner1">
+                <div class="avatar">
+                    <!-- 本地的图片是可以绘画到canvas上的，且可以使用canvas.toDataURL API，但是其他服务器上的图片不行-->
+                    <img class="topImg" :src="avatar" alt="" @load="isOnloadAll" >
+                </div>
+                <!--<div class="ranking">
+                    <p>排行榜第七名</p>
+                    <p>已经超过80%同事</p>
+                </div>-->
+                <div class="avatarDown">
+                    <img class="downImg" :src="avatarDown" alt="">
+                    <p class="storeName">水之梦（xxx店）</p>
+                    <p class="time">23-03-23 16:00</p>
+                    <img class="qrcode" :src="qrcode" alt="qrcode"/>
+                    <div>
+                        <p class="playerNameTitle">Player</p>
+                        <p class="playerName">张三</p>
+                    </div>
+                    <div>
+                        <p class="buddyNameTitle">Partner</p>
+                        <p class="buddyName">李四</p>
+                    </div>
+                    <div>
+                        <p class="advertiseTitle">水之梦酒店</p>
+                        <p class="advertise">放松水浴+星级自助餐+中式按摩+古法铜壶</p>
+                    </div>
+                    <img class="qrcode" :src="qrcode" alt="qrcode"/>
+                </div>
+                <p style="opacity: 1; margin-top: 0.5rem" ref="scanText" id="scanText" data-html2canvas-ignore>-- 长按保存
+                    --</p>
+            </div>
+        </div>
+    </div>
+    <!--<div class="btnCon clearFix">
+        &lt;!&ndash; data-html2canvas-ignore 用来去除不需要上传的标签&ndash;&gt;
+        <div class="btnItem save" @click="createImage" v-show="CanvasImageHide" data-html2canvas-ignore>保存图片</div>
+    </div>-->
+    <!--生成的图片的存放容器-->
+    <div class="shareImg" ref="shareImg" id="shareImg" style=""></div>
+</div>
+<script src="js/flexible.js?v=20101212"></script>
+<script src="js/html2canvas.js?v=20101212"></script>
+<script src="js/vue-2.4.2.min.js?v=20101212"></script>
+<!--<script src="js/qrcode.js?v=20101212"></script>-->
+<script src="js/ticket.js?v=20101212"></script>
+</body>
+</html>

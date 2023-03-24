@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#ticket {
+    overflow: hidden;
+    position: relative;
+    /*background-color: rgb(131, 110, 89);*/
+}
+
+.banner{
+    width: 100%;
+    object-fit: cover;
+}
+
+.from-item{
+    /*float: left;*/
+    /*margin:0 auto;*/
+}
