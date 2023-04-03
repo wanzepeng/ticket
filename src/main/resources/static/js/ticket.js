@@ -4,14 +4,16 @@ var vm = new Vue({
         return {
             CanvasImageHide: true,
             showToast: false,
-            avatar: 'assets/test.jpg',
-            avatarDown: 'assets/piaogen.png',
+            // avatar: 'assets/test.png',
+            // avatarDown: 'assets/piaogen.png',
+            avatarDown: 'assets/ticket1.png',
             qrcode: 'assets/qrcode.png',
             info:  {
                 storeName: '',
                 time: '',
                 playerName: '',
                 buddyName: '',
+                message: '',
                 imageUrl: '',
             },
         };

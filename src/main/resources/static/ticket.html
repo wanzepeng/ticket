@@ -14,29 +14,34 @@
         <!--        <h3 class="title">拉新活动</h3>-->
         <div class="bannerCon1">
             <div class="banner1">
-                <div class="avatar">
+<!--                <div class="avatar">-->
                     <!-- 本地的图片是可以绘画到canvas上的，且可以使用canvas.toDataURL API，但是其他服务器上的图片不行-->
-                    <img class="topImg" :src="avatar" alt="" @load="isOnloadAll">
-                </div>
+<!--                    <img class="topImg" :src="avatar" alt="" @load="isOnloadAll">-->
+<!--                    <img class="topImg" :src="info.imageUrl" alt=""  @load="isOnloadAll"/>-->
+<!--                </div>-->
                 <div class="avatarDown">
                     <img class="downImg" :src="avatarDown" alt="">
                     <p class="storeName">{{info.storeName}}</p>
                     <p class="time">{{info.time}}</p>
                     <div>
-                        <p class="playerNameTitle">Player</p>
+                        <p class="playerNameTitle">PLAYER</p>
                         <p class="playerName">{{info.playerName}}</p>
                     </div>
                     <div>
-                        <p class="buddyNameTitle">Partner</p>
+                        <p class="buddyNameTitle">PARTNER</p>
                         <p class="buddyName">{{info.buddyName}}</p>
                     </div>
                     <div>
-                        <p class="advertiseTitle">水之梦酒店</p>
-                        <p class="advertise">放松水浴+星级自助餐+中式按摩+古法铜壶</p>
+                        <p class="messageTitle">WISHES</p>
+                        <p class="message">{{info.message}}</p>
                     </div>
-                    <img class="qrcode" :src="qrcode" alt="qrcode"/>
+                    <div>
+                        <p class="advertiseTitle">水之梦</p>
+                        <p class="advertise">城市新生活空间</p>
+                    </div>
+<!--                    <img class="qrcode" :src="qrcode" alt="qrcode"/>-->
                     <div class="userImgDiv">
-                        <img class="userImage" :src="info.imageUrl" alt=""/>
+                        <img class="userImage" :src="info.imageUrl" alt="" @load="isOnloadAll"/>
                     </div>
                 </div>
                 <p style="opacity: 1; margin-top: 0.5rem; color: white" ref="scanText" id="scanText" data-html2canvas-ignore>-- 长按保存

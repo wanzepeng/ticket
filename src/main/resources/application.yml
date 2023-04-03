@@ -7,4 +7,4 @@ spring:
 file:
   image:
 #    dirName: D:\zwan\项目\水之梦\ticket\images
-    dirName: /www/server/java/dream
+    dirName: /www/server/java/dream/image

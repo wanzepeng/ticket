@@ -11,15 +11,19 @@
 <body>
 <div id="app" ref="app">
     <div>
-        <el-row>
+        <el-row style="position: relative">
+            <img class="banner" :src="ticketMaker">
+        </el-row>
+        <el-row style="position: absolute;top: 0;left: 0;margin-top: 40%;margin-left: 15%;width: 70%">
             <el-col>
-                <img class="banner" :src="banner">
+                <!--                <img class="banner" :src="banner">-->
             </el-col>
-            <el-col style="margin-top: 1rem">
-                <el-form :rules="rules" label-position="left" ref="form" :model="form" label-width="5rem">
+            <el-col style="margin-top: 1rem;width: 100%">
+                <el-form :rules="rules" label-position="left" ref="form" :model="form" label-width="40px"
+                         hide-required-asterisk="true" :show-message="false">
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item label="照片上传" class="from-item">
+                            <el-form-item label="照片上传" class="from-item avatar-uploader-item">
                                 <el-upload
                                         accept="image/*"
                                         class="avatar-uploader"
@@ -38,7 +42,7 @@
                     </el-row>
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item label="店铺" class="from-item" prop="storeName">
+                            <el-form-item label="店铺" class="from-item" prop="storeName" >
                                 <el-input v-model="form.storeName" :disabled="true" placeholder="请输入内容"></el-input>
                             </el-form-item>
                         </el-col>
@@ -46,12 +50,14 @@
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
                             <el-form-item label="时间" class="from-item" prop="time">
-                                <el-date-picker
-                                        value-format="yyyy-MM-dd hh:mm"
+                                <el-input
+                                        :disabled="true"
+                                        prefix-icon="el-icon-date"
                                         v-model="form.time"
                                         type="datetime"
-                                        placeholder="选择日期时间">
-                                </el-date-picker>
+                                        placeholder="选择日期时间"
+                                       >
+                                </el-input>
                             </el-form-item>
                         </el-col>
                     </el-row>
@@ -71,8 +77,15 @@
                     </el-row>
                     <el-row type="flex" justify="center">
                         <el-col :span="20">
-                            <el-form-item>
-                                <el-button plain @click="onSubmit('form')">立即创建</el-button>
+                            <el-form-item label="寄语" class="from-item" prop="message">
+                                <el-input type="textarea" v-model="form.message" placeholder="请输入寄语"></el-input>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
+                    <el-row type="flex" justify="center">
+                        <el-col :span="24">
+                            <el-form-item >
+                                <el-button plain @click="onSubmit('form')" class="submitButton">立即创建</el-button>
                             </el-form-item>
                         </el-col>
                     </el-row>
