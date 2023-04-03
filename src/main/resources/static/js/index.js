@@ -4,6 +4,7 @@ var vm = new Vue({
         return {
             banner: "assets/banner.png",
             ticketMaker: "assets/ticketMaker1.png",
+            // ticketMaker: "assets/ticketMaker2.png",
             action: '/image/upload',
             form: {
                 storeName: '水之梦黄浦旗舰店',
