@@ -76,7 +76,7 @@ var vm = new Vue({
             }*/
 
             console.log(this.imgNum)
-            this.imgNum+=1;
+            this.imgNum += 1;
             console.log(this.imgNum)
             if (this.imgNum === 2) {
                 this.createImage()
@@ -169,6 +169,7 @@ var vm = new Vue({
             }).then(function (canvas) {
                 // 将canvas转换成图片渲染到页面上
                 var url = canvas.toDataURL('image/png');// base64数据
+                console.log("生成图片url：" + url)
                 var image = new Image();
                 image.src = url;
                 document.getElementById('shareImg').appendChild(image);

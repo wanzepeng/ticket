@@ -6,6 +6,7 @@ var vm = new Vue({
             ticketMaker: "assets/ticketMaker1.png",
             // ticketMaker: "assets/ticketMaker2.png",
             action: '/image/upload',
+            showCut: false,
             form: {
                 storeName: '水之梦黄浦旗舰店',
                 // storeName: '潮TOWN卓刀泉店',
@@ -16,24 +17,198 @@ var vm = new Vue({
             },
             rules: {
                 // time:  { required: true, message: '请选择日期时间', trigger: 'blur' },
-                playerName: [{required: true, message: '请输入玩家名称', trigger: 'blur'}, { min: 1, max: 17, message: '长度在 1 到 17 个字符', trigger: 'blur' }],
-                buddyName: [{required: true, message: '请输入同伴名称', trigger: 'blur'} , { min: 1, max: 17, message: '长度在 1 到 17 个字符', trigger: 'blur' }],
-                message: [{required: true, message: '请输入寄语', trigger: 'blur'}, { min: 1, max: 34, message: '长度在 1 到 34 个字符', trigger: 'blur' }],
+                playerName: [{required: true, message: '请输入玩家名称', trigger: 'blur'}, {
+                    min: 1,
+                    max: 17,
+                    message: '长度在 1 到 17 个字符',
+                    trigger: 'blur'
+                }],
+                buddyName: [{required: true, message: '请输入同伴名称', trigger: 'blur'}, {
+                    min: 1,
+                    max: 17,
+                    message: '长度在 1 到 17 个字符',
+                    trigger: 'blur'
+                }],
+                message: [{required: true, message: '请输入寄语', trigger: 'blur'}, {
+                    min: 1,
+                    max: 34,
+                    message: '长度在 1 到 34 个字符',
+                    trigger: 'blur'
+                }],
             },
             imageUrl: '',
             imgMaxSize: 50,
             fileData: {   // 接口需要的额外参数
-            }
-            , headers: {  // 请求头部参数
-            }
+            },
+            headers: {  // 请求头部参数
+            },
+            //    截图使用参数
+            model: false,
+            modelSrc: '',
+            crap: false,
+            previews: {},
+            option: {
+                img: 'https://avatars2.githubusercontent.com/u/15681693?s=460&v=4',
+                size: 1,
+                full: false,
+                outputType: 'png',
+                canMove: true,
+                fixedBox: true,
+                original: false,
+                canMoveBox: false,
+                autoCrop: true,
+                // 只有自动截图开启 宽度高度才生效
+                // autoCropWidth: 80%,
+                // autoCropHeight: 340,
+                centerBox: true,
+                high: true,
+                max: 99999
+            },
+            show: true,
+            fixed: true,
+            fixedNumber: [7, 10]
         };
     },
     mounted: function () {
         const url = window.location.search;
         // this.getParams(url)
         this.form.time = this.getDate()
+        this.$refs.cropper.cropX -= 20
     },
     methods: {
+        // 开始截图
+        confirmCut() {
+            this.$refs.cropper.getCropBlob(data => {
+                // do something
+                console.log(data)
+                var img = window.URL.createObjectURL(data)
+                this.imageUrl = img
+                this.showCut = false
+            })
+        },
+        cancelCut() {
+            this.showCut = false
+        },
+        // 图片裁剪
+        startCrop() {
+            // start
+            this.crap = true
+            this.$refs.cropper.startCrop()
+        },
+        stopCrop() {
+            //  stop
+            this.crap = false
+            this.$refs.cropper.stopCrop()
+        },
+        clearCrop() {
+            // clear
+            this.$refs.cropper.clearCrop()
+        },
+        refreshCrop() {
+            // clear
+            this.$refs.cropper.refresh()
+        },
+        changeScale(num) {
+            num = num || 1
+            this.$refs.cropper.changeScale(num)
+        },
+        rotateLeft() {
+            this.$refs.cropper.rotateLeft()
+        },
+        rotateRight() {
+            this.$refs.cropper.rotateRight()
+        },
+        finish(type) {
+            // 输出
+            // var test = window.open('about:blank')
+            // test.document.body.innerHTML = '图片生成中..'
+            if (type === 'blob') {
+                this.$refs.cropper.getCropBlob((data) => {
+                    console.log(data);
+                    var img = window.URL.createObjectURL(data)
+                    this.model = true
+                    this.modelSrc = img
+                })
+            } else {
+                this.$refs.cropper.getCropData((data) => {
+                    this.model = true
+                    this.modelSrc = data
+                })
+            }
+        },
+        // 实时预览函数
+        realTime(data) {
+            this.previews = data
+            console.log(data)
+        },
+
+        finish2(type) {
+            this.$refs.cropper2.getCropData((data) => {
+                this.model = true
+                this.modelSrc = data
+            })
+        },
+        finish3(type) {
+            this.$refs.cropper3.getCropData((data) => {
+                this.model = true
+                this.modelSrc = data
+            })
+        },
+        down(type) {
+            // event.preventDefault()
+            var aLink = document.createElement('a')
+            aLink.download = 'demo'
+            // 输出
+            if (type === 'blob') {
+                this.$refs.cropper.getCropBlob((data) => {
+                    this.downImg = window.URL.createObjectURL(data)
+                    aLink.href = window.URL.createObjectURL(data)
+                    aLink.click()
+                })
+            } else {
+                this.$refs.cropper.getCropData((data) => {
+                    this.downImg = data
+                    aLink.href = data
+                    aLink.click()
+                })
+            }
+        },
+
+        uploadImg(e, num) {
+            //上传图片
+            // this.option.img
+            var file = e.target.files[0]
+            if (!/\.(gif|jpg|jpeg|png|bmp|GIF|JPG|PNG)$/.test(e.target.value)) {
+                alert('图片类型必须是.gif,jpeg,jpg,png,bmp中的一种')
+                return false
+            }
+            var reader = new FileReader()
+            reader.onload = (e) => {
+                let data
+                if (typeof e.target.result === 'object') {
+                    // 把Array Buffer转化为blob 如果是base64不需要
+                    data = window.URL.createObjectURL(new Blob([e.target.result]))
+                } else {
+                    data = e.target.result
+                }
+                if (num === 1) {
+                    this.option.img = data
+                } else if (num === 2) {
+                    this.example2.img = data
+                }
+            }
+            // 转化为base64
+            // reader.readAsDataURL(file)
+            // 转化为blob
+            reader.readAsArrayBuffer(file)
+        },
+        imgLoad(msg) {
+            console.log(msg)
+        },
+        cropMoving(data) {
+            console.log(data, '截图框当前坐标')
+        },
+        //-----------------------------------
         getDate: function () {
             var myDate = new Date();	//创建Date对象
             var Y = myDate.getFullYear() + "";   //获取当前完整年份
@@ -92,8 +267,10 @@ var vm = new Vue({
             // res.imgUrl 1679646637542storm-clouds-hole-background.jpg
             if (res.code === 200) {
                 this.imageUrl = URL.createObjectURL(file.raw)
+                this.option.img = URL.createObjectURL(file.raw)
                 console.log(file.raw)
                 console.log(this.imageUrl)
+                this.showCut = true
             } else {
                 this.$message.error("图片上传失败...")
             }

@@ -6,5 +6,5 @@ spring:
       max-file-size: 50MB
 file:
   image:
-#    dirName: D:\zwan\项目\水之梦\ticket\images
-    dirName: /www/server/java/dream/image
+    dirName: D:\zwan\项目\水之梦\ticket\images
+#    dirName: /www/server/java/dream/image
