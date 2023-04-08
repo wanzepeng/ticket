@@ -1,10 +1,13 @@
 server:
-  port: 8880
+#  port: 8880 # 水之梦（黄埔店）
+#  port: 8881 # 水之梦（CBD店）
+#  port: 8882 # 潮TOWN（卓刀泉店）
+  port: 8883 # 潮TOWN（黄石店）
 spring:
   servlet:
     multipart:
       max-file-size: 50MB
 file:
   image:
-    dirName: D:\zwan\项目\水之梦\ticket\images
-#    dirName: /www/server/java/dream/image
+#    dirName: D:\zwan\项目\水之梦\ticket\images
+    dirName: /www/server/java/dream/image

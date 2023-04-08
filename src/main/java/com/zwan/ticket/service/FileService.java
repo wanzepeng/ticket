@@ -24,11 +24,12 @@ public class FileService {
                 System.currentTimeMillis() + file.getOriginalFilename();
         try {
             File dest = new File(dirName, fileName);
-            if (!dest.getParentFile().exists()) {
-                dest.getParentFile().mkdirs();
-            }
-            file.transferTo(dest);
-        } catch (IllegalStateException | IOException e) {
+//            if (!dest.getParentFile().exists()) {
+//                dest.getParentFile().mkdirs();
+//            }
+            // 保存图片
+//            file.transferTo(dest);
+        } catch (Exception e) {
             String errorMsg = "上传文件[" + fileName + "]失败！";
             log.error(errorMsg, e);
         }
