@@ -4,15 +4,15 @@ var vm = new Vue({
         return {
             banner: "assets/banner.png",
             // TODO 切换图片
-            // ticketMaker: "assets/ticketMaker1.png",
-            ticketMaker: "assets/ticketMaker2.png",
+            ticketMaker: "assets/ticketMaker1.png",
+            // ticketMaker: "assets/ticketMaker2.png",
             action: '/image/upload',
             showCut: false,
             form: {
-                // storeName: '水之梦（黄埔店）',
+                storeName: '水之梦（黄浦店）',
                 // storeName: '水之梦（CBD店）',
                 // storeName: '潮TOWN（卓刀泉店）',
-                storeName: '潮TOWN（黄石店）',
+                // storeName: '潮TOWN（黄石店）',
                 time: '',
                 playerName: '',
                 buddyName: '',

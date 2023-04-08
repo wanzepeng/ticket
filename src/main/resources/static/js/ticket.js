@@ -7,8 +7,8 @@ var vm = new Vue({
             // avatar: 'assets/test.png',
             // avatarDown: 'assets/piaogen.png',
             // TODO切换图片
-            // avatarDown: 'assets/ticket1.png',
-            avatarDown: 'assets/ticket2.png',
+            avatarDown: 'assets/ticket1.png',
+            // avatarDown: 'assets/ticket2.png',
             qrcode: 'assets/qrcode.png',
             info: {
                 storeName: '',
